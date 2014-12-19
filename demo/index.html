@@ -128,12 +128,14 @@
       var suncalc_data_sunset = [];
       var chart;
 
+      var initLatLng = new google.maps.LatLng(54.10, 10.28)
+
       // Initialize Google Maps
       function initialize_google_maps(){
 
         // If no lat/lng values, center the map marker on 0,0 coordinates
         if (existingLat == null) {
-          var latlng = new google.maps.LatLng(0,0);
+          var latlng = initLatLng;
           var zoomLevel = 1;
         } else {
           var latlng = new google.maps.LatLng(existingLat,existingLng,true);
@@ -344,7 +346,7 @@
 
         };
 
-        suncalc_update(54.10, 10.28);
+        suncalc_update(initLatLng.lat(),initLatLng.lng());
 
         $("#highcharts").highcharts({
           chart: {
