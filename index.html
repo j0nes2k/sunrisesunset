@@ -279,12 +279,12 @@
            suncalc_data_sunrise.push(Date.UTC(0,0,0,times.sunrise.getHours(), times.sunrise.getMinutes(), 0));
            suncalc_data_sunset.push(Date.UTC(0,0,0,times.sunset.getHours(), times.sunset.getMinutes(), 0));
 
-           if (chart !== undefined) {
-              chart.series[0].setData(suncalc_data_sunrise,true);
-              chart.series[1].setData(suncalc_data_sunset,true);
-           }
-
         }
+
+       if (chart !== undefined) {
+          chart.series[0].setData(suncalc_data_sunrise,true);
+          chart.series[1].setData(suncalc_data_sunset,true);
+       }
       }
 
 
