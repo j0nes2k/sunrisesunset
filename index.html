@@ -51,8 +51,7 @@
         width:150px;
       }
       .form {
-        width:600px;
-        margin:20px;
+        width:800px;
       }
       .form input {
         height: 20px;
@@ -62,6 +61,12 @@
       }
       .error {
         color:red;
+      }
+
+      #highcharts {
+        width:800px;
+        height:400px;
+        padding: 20px;
       }
     </style>
   </head>
@@ -74,13 +79,6 @@
           <h1>Sunrisesunset</h1>
           <h2>See dynamic graphs of sunrise and sunset for all locations worldwide in real-time.</h2>
         </header>
-
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/j0nes2k/sunrisesunset/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/j0nes2k/sunrisesunset/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/j0nes2k/sunrisesunset" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
-
         <hr>
 
         <section id="main_content">
@@ -92,15 +90,15 @@
             </div>
             <div class="field">
               <strong>Marker Coordinates: </strong>
-              <input type="text" id="latitude"> , <input type="text" id="longitude">
+              <input type="text" id="latitude" value="54.10"> , <input type="text" id="longitude" value="10.28">
               <button type="button"onclick="clearMap();">Clear Coordinates</button>
             </div>
-            <div class="element-map" id="gmaps-canvas" class="field" style="clear: both;height:295px;border: 1px solid #999;">
+            <div class="element-map" id="gmaps-canvas" class="field" style="clear: both;height:400px;">
             </div>
             <div id="gmaps-error" class="error"></div>
           </form>
 
-          <div id="highcharts" style="width:100%; height:400px;"></div>
+          <div id="highcharts"></div>
 
         </section>
         <footer>
@@ -128,7 +126,7 @@
       var suncalc_data_sunset = [];
       var chart;
 
-      var initLatLng = new google.maps.LatLng(54.10, 10.28)
+      var initLatLng = new google.maps.LatLng(54.10, 10.28);
 
       // Initialize Google Maps
       function initialize_google_maps(){
@@ -136,7 +134,7 @@
         // If no lat/lng values, center the map marker on 0,0 coordinates
         if (existingLat == null) {
           var latlng = initLatLng;
-          var zoomLevel = 1;
+          var zoomLevel = 3;
         } else {
           var latlng = new google.maps.LatLng(existingLat,existingLng,true);
           var zoomLevel = 12;
