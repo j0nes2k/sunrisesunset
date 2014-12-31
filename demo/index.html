@@ -392,9 +392,15 @@
               pointInterval: 3600 * 1000 * 24 // one day
           }],
           tooltip: {
-              formatter: function() {
-                  return '<b>' + this.series.name + '</b><br>Day of month: ' + Highcharts.dateFormat('%d.%b', this.x) + '<br/>' + this.series.name + ': '+ Highcharts.dateFormat('%H:%M', this.y);
-              }
+            shared: true,
+            crosshairs: true,
+            followPointer: true,
+            followTouchMove: true,
+            formatter: function() {
+                return '<b>Date: ' + Highcharts.dateFormat('%d. %b', this.x) + '<br>' + this.points[0].series.name + ': ' + 
+                      Highcharts.dateFormat('%H:%M', this.points[0].y) + '<br>' + this.points[1].series.name + ': ' + 
+                      Highcharts.dateFormat('%H:%M', this.points[1].y);
+            }
           }
 
 
